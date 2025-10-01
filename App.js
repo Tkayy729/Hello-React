@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const title = () => {
+const Title = () => {
   return <h1>This is the title</h1>;
 };
 
@@ -16,7 +16,7 @@ const reactEl = (
 
 const App = () => (
   <div className="container">
-    <title />
+    <Title />
     {reactEl}
     <h1>I am re-learning react</h1>
   </div>
