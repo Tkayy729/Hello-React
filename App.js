@@ -3,16 +3,15 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement(
-    "div",
-    { id: "child1", key: "1" },
-    React.createElement(
-      "div",
-      { id: "child2", key: "1"  },
-      React.createElement("h1", { id: "h1tag" }, "I am the h1 tag")
-    )
-  ),
-]);
+const Title = () => {
+  return <h1>This is the title</h1>;
+};
 
-root.render(parent);
+const App = () => (
+  <div className="container">
+    <title />
+    <h1>I am re-learning react</h1>
+  </div>
+);
+
+root.render(<App />);
