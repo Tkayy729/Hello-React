@@ -25,8 +25,7 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = (props) => {
-  const { name, location, rating, image, time } = props;
+const RestaurantCard = ({ name, location, rating, image, time }) => {
   return (
     <div className="res-card">
       <img src={image} alt="res-log" className="res-logo" />
@@ -42,15 +41,8 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        {restaurants.map((res, index) => (
-          <RestaurantCard
-            key={index}
-            name={res.name}
-            location={res.location}
-            rating={res.rating}
-            time={res.time}
-            image={res.image}
-          />
+        {restaurants.map((restaurant, index) => (
+          <RestaurantCard key={index} {...restaurant} />
         ))}
       </div>
     </div>
