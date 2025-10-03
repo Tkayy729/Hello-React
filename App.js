@@ -26,7 +26,7 @@ const Header = () => {
 };
 
 const RestaurantCard = (props) => {
-  const { name, location, image, time } = props;
+  const { name, location, rating, image, time } = props;
   return (
     <div className="res-card">
       <img src={image} alt="res-log" className="res-logo" />
