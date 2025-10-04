@@ -1,9 +1,9 @@
-export const restaurants = [
+export const MockRestaurants = [
   {
     id: 1,
     name: "McDonald's",
     location: "Pardubice, Brno, Prague",
-    rating: 4.4,
+    rating: 3.4,
     time: "38 minutes",
     image:
       "https://imageproxy.wolt.com/menu/menu-images/603659d62deccf067d86f8d0/8d390732-49f2-11ef-a982-ce592682695d_tpo_cze_del_6380_may24.jpg?w=600",
