@@ -18,10 +18,7 @@ const Body = () => {
     const json = await data.json();
 
     setListOfRestaurants(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
-    console.log(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
   return listOfRestaurants.length === 0 ? (
@@ -39,7 +36,9 @@ const Body = () => {
           <button
             onClick={() => {
               const filteredRes = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchedText.toLowerCase())
+                res?.info?.name
+                  .toLowerCase()
+                  .includes(searchedText.toLowerCase())
               );
               setListOfRestaurants(filteredRes);
             }}
@@ -51,7 +50,7 @@ const Body = () => {
         <button
           onClick={() => {
             const filteredRes = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4.1
+              (res) => res?.info?.avgRating > 4.1
             );
             setListOfRestaurants(filteredRes);
           }}
@@ -63,9 +62,9 @@ const Body = () => {
       <div className="res-container">
         {listOfRestaurants?.map((restaurant) => (
           <RestaurantCard
-            {...restaurant.info}
-            deliveryTime={restaurant.info.sla.deliveryTime}
-            key={restaurant.info.id}
+            {...restaurant?.info}
+            deliveryTime={restaurant?.info?.sla?.deliveryTime}
+            key={restaurant?.info?.id}
           />
         ))}
       </div>
