@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [searchedText, setSearchedText] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -30,8 +30,8 @@ const Body = () => {
           <input
             type="text"
             placeholder="search"
-            onChange={(e) => setSearchedText(e.target.value)}
-            value={searchedText}
+            onChange={(e) => setSearchText(e.target.value)}
+            value={searchText}
           />
           <button
             onClick={() => {
