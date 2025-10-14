@@ -8,45 +8,40 @@ const RestaurantMenu = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const data = await fetch(`${MENU_API + resId}`);
-        const json = await data.json();
-        setResMenuInfo(json?.data?.cards?.[2]?.card?.card?.info);
-        console.log(json?.data?.cards?.[2]?.card?.card?.info);
-      } catch (err) {
-        console.error("Error fetching restaurant data:", err);
-      }
-    };
-
+      const res = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=670");
+      console.log(res)
+    
+    }
     fetchData();
   }, [resId]);
 
-  if (!resMenuInfo) {
-    return <h2>Loading restaurant info...</h2>;
-  }
+  
 
-  const {
-    name,
-    areaName,
-    locality,
-    cuisines = [],
-    costForTwoMessage,
-    avgRatingString,
-    sla: { deliveryTime } = {},
-    aggregatedDiscountInfo: { header } = {},
-  } = resMenuInfo;
+  // const {
+  //   name,
+  //   areaName,
+  //   locality,
+  //   cuisines = [],
+  //   costForTwoMessage,
+  //   avgRatingString,
+  //   sla: { deliveryTime } = {},
+  //   aggregatedDiscountInfo: { header } = {},
+  // } = resMenuInfo;
 
   return (
+    // <div>
+    //   <h1>{name}</h1>
+    //   <p>Cuisines: {cuisines.join(", ")}</p>
+    //   <p>
+    //     Locality: {locality}, Area name: {areaName}
+    //   </p>
+    //   <p>cost for two: {costForTwoMessage}</p>
+    //   <p>Rating⭐ :{avgRatingString}</p>
+    //   <p>🕒 Delivery Time: {deliveryTime} mins</p>
+    //   <p>{header}</p>
+    // </div>
     <div>
-      <h1>{name}</h1>
-      <p>Cuisines: {cuisines.join(", ")}</p>
-      <p>
-        Locality: {locality}, Area name: {areaName}
-      </p>
-      <p>cost for two: {costForTwoMessage}</p>
-      <p>Rating⭐ :{avgRatingString}</p>
-      <p>🕒 Delivery Time: {deliveryTime} mins</p>
-      <p>{header}</p>
+      Name of restaurant
     </div>
   );
 };
