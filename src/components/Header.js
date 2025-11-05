@@ -1,4 +1,5 @@
 import { MdLogout } from "react-icons/md";
+import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -6,7 +7,7 @@ const Header = () => {
   const isOnline = useOnlineStatus();
 
   return (
-    <div className="flex justify-between bg-gray-800 text-gray-50 px-5 shadow-lg">
+    <div className="fixed w-full top-0 left-0 flex justify-between bg-gray-800 text-gray-50 px-5 shadow-lg">
       <div className="flex place-items-center">
         <span className="text-gray-400 ">TkayRES</span>
       </div>
@@ -25,11 +26,11 @@ const Header = () => {
           <li>
             <Link to={"/contact-us"}>Contact Us</Link>
           </li>
-          <li>Cart</li>
         </ul>
       </div>
-      <div className="nav-items-right place-content-center">
-        <MdLogout className="w-6 h-6 "/>
+      <div className="flex  justify-center items-center space-x-6 ">
+        <FaCartPlus className=" w-6 h-6" />
+        <MdLogout className="w-6 h-6 " />
       </div>
     </div>
   );
