@@ -12,12 +12,13 @@ const useRestaurant = () => {
   const fetchData = async () => {
     try {
       const data = await fetch(
-        "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+        "https://namastedev.com/api/v1/listRestaurants"
       );
       const json = await data.json();
       const restaurants =
-        json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        json.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
+          console.log(restaurants)
 
       setListOfRestaurants(restaurants);
       setFilteredRestaurants(restaurants);
