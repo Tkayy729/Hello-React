@@ -18,8 +18,6 @@ const useRestaurant = () => {
       const restaurants =
         json.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
-          console.log(restaurants)
-
       setListOfRestaurants(restaurants);
       setFilteredRestaurants(restaurants);
     } catch (err) {
