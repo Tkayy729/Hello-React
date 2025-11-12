@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { WithVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurant from "../utils/useRestaurant";
@@ -22,6 +22,7 @@ const Body = () => {
       </div>
     );
   }
+  const VegRestaurantCard = WithVegLabel(RestaurantCard);
 
   return loading ? (
     <Shimmer />
@@ -67,15 +68,24 @@ const Body = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 px-10">
         {filteredRestaurants?.map((restaurant) => {
+          const info = restaurant?.info;
+          console.log("info", info);
           return (
             <Link
               key={restaurant?.info?.id}
-              to={"/restaurants/" + restaurant?.info?.id}
+              to={"/restaurants1/" + restaurant?.info?.id}
             >
-              <RestaurantCard
-                {...restaurant?.info}
-                deliveryTime={restaurant?.info?.sla?.deliveryTime}
-              />
+              {info?.veg ? (
+                <VegRestaurantCard
+                  {...info}
+                  deliveryTime={restaurant?.info?.sla?.deliveryTime}
+                />
+              ) : (
+                <RestaurantCard
+                  {...info}
+                  deliveryTime={restaurant?.info?.sla?.deliveryTime}
+                />
+              )}
             </Link>
           );
         })}
