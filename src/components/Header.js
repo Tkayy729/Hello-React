@@ -7,7 +7,7 @@ const Header = () => {
   const isOnline = useOnlineStatus();
 
   return (
-    <div className="fixed w-full top-0 left-0 flex justify-between bg-gray-800 text-gray-50 px-5 shadow-lg">
+    <div className="fixed w-full top-0 left-0 flex justify-between bg-gray-800 text-gray-50 px-5 shadow-lg **z-[1000]**">
       <div className="flex place-items-center">
         <span className="text-gray-400 ">TkayRES</span>
       </div>
