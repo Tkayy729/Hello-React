@@ -73,7 +73,7 @@ const Body = () => {
           return (
             <Link
               key={restaurant?.info?.id}
-              to={"/restaurants1/" + restaurant?.info?.id}
+              to={"/restaurants/" + restaurant?.info?.id}
             >
               {info?.veg ? (
                 <VegRestaurantCard
