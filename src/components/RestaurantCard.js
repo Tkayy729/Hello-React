@@ -1,4 +1,4 @@
-import { ALT_IMG_URL, CDN_URL } from "../utils/constants";
+import { ALT_IMG_URL } from "../utils/constants";
 
 const RestaurantCard = ({
   name,
@@ -20,6 +20,17 @@ const RestaurantCard = ({
       <h4 className="text-sm text-gray-700 p-1">{costForTwo} for two</h4>
       <h4 className="text-sm text-gray-700 p-1">{avgRating} ⭐ ratings</h4>
       <h4 className="text-sm text-gray-700 p-1">{deliveryTime} minutes</h4>
+    </div>
+  );
+};
+
+export const WithVegLabel = (RestaurantCard) => {
+  return (props) => (
+    <div className="relative **z-0**">
+      <label className="absolute m-1 p-1 bg-green-500 text-gray-950 rounded-md">
+        Vegetarian
+      </label>
+      <RestaurantCard {...props} />
     </div>
   );
 };
