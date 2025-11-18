@@ -7,14 +7,19 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const AppLayout = () => (
-  <div className="app">
-    <Header />
-    <Outlet />
-  </div>
+  <Provider store={appStore}>
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+  </Provider>
 );
 
 const Gloceries = lazy(() => import("./components/Gloceries"));
@@ -48,6 +53,10 @@ const appRouter = createBrowserRouter([
             <RestaurantMenu />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
